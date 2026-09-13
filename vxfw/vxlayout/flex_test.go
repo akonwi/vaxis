@@ -3,9 +3,9 @@ package vxlayout
 import (
 	"testing"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
-	"go.rockorager.dev/vaxis/vxfw/text"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
+	"github.com/akonwi/vaxis/vxfw/text"
 )
 
 func TestFlexRow(t *testing.T) {

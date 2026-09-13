@@ -6,9 +6,9 @@ import (
 	"unicode"
 	"unicode/utf8"
 
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
 	"github.com/rockorager/go-uucode"
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
 )
 
 type Text struct {

@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"go.rockorager.dev/vaxis/ui"
+	"github.com/akonwi/vaxis/ui"
 )
 
 type runtimeCaptureWidget struct{ Runtime *ui.Runtime }

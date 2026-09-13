@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/ansi"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/ansi"
 )
 
 func testDECRQSS(data string) ansi.DCS {

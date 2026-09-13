@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
-	"go.rockorager.dev/vaxis/vxfw/button"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
+	"github.com/akonwi/vaxis/vxfw/button"
 )
 
 type App struct {

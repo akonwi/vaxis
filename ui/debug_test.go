@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 func TestDebugSnapshotDumpsTreeAndFocusTargets(t *testing.T) {

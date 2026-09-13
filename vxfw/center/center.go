@@ -1,7 +1,7 @@
 package center
 
 import (
-	"go.rockorager.dev/vaxis/vxfw"
+	"github.com/akonwi/vaxis/vxfw"
 )
 
 // Center draws the child centered within the space given to Center

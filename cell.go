@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"go.rockorager.dev/vaxis/ansi"
+	"github.com/akonwi/vaxis/ansi"
 )
 
 // Cell represents a single cell in a terminal window. It contains a [Character]

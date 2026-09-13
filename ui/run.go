@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 // Run creates a vaxis-backed app for root and blocks until it exits.

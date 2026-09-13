@@ -4,7 +4,7 @@ import (
 	"io"
 	"math"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 // Model represents a progress bar. A progress bar is also an io.Reader and an

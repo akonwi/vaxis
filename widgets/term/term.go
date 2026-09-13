@@ -15,11 +15,11 @@ import (
 	"time"
 	"unicode/utf8"
 
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/ansi"
+	"github.com/akonwi/vaxis/log"
+	"github.com/akonwi/vaxis/widgets/term/pty"
 	"github.com/rockorager/go-uucode"
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/ansi"
-	"go.rockorager.dev/vaxis/log"
-	"go.rockorager.dev/vaxis/widgets/term/pty"
 )
 
 type (

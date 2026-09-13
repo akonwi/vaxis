@@ -4,8 +4,8 @@ package image
 import (
 	"math"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
 )
 
 // Image displays a vaxis.Image in a vxfw widget tree.

@@ -4,7 +4,7 @@ import (
 	"context"
 	"io"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 // Backend is the runtime boundary between ui and a terminal implementation.

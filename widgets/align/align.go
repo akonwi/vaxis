@@ -1,6 +1,6 @@
 package align
 
-import "go.rockorager.dev/vaxis"
+import "github.com/akonwi/vaxis"
 
 // Center returns a Surface centered vertically and horizontally within the
 // parent surface.

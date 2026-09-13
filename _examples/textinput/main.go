@@ -3,8 +3,8 @@ package main
 import (
 	"strings"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/widgets/textinput"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/widgets/textinput"
 )
 
 // 1,000 most common English words.

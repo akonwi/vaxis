@@ -3,8 +3,8 @@ package vxlayout
 import (
 	"math"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
 )
 
 type FlexDirection int

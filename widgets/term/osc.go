@@ -8,7 +8,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 const (

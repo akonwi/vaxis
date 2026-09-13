@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 func main() {

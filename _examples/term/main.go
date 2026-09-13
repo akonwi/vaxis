@@ -4,8 +4,8 @@ import (
 	"os"
 	"os/exec"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/widgets/term"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/widgets/term"
 )
 
 func main() {

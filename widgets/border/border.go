@@ -1,6 +1,6 @@
 package border
 
-import "go.rockorager.dev/vaxis"
+import "github.com/akonwi/vaxis"
 
 var (
 	horizontal  = vaxis.Character{Grapheme: "─", Width: 1}

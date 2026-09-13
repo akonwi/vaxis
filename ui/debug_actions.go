@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 type debugActionRequest struct {

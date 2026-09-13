@@ -3,7 +3,7 @@ package ui_test
 import (
 	"testing"
 
-	"go.rockorager.dev/vaxis/ui"
+	"github.com/akonwi/vaxis/ui"
 )
 
 func TestCursorWidgetReportsGlobalPaintPosition(t *testing.T) {

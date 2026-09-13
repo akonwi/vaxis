@@ -4,8 +4,8 @@ import (
 	"slices"
 	"testing"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
 )
 
 func TestText(t *testing.T) {

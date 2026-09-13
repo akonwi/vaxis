@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"go.rockorager.dev/vaxis/ansi"
+	"github.com/akonwi/vaxis/ansi"
 )
 
 func testCSI(final rune, params []int, colonAfter ...int) ansi.CSI {

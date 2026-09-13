@@ -3,8 +3,8 @@ package term
 import (
 	"testing"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/ansi"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/ansi"
 )
 
 func TestInsertBlanks(t *testing.T) {

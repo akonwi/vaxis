@@ -1,5 +1,10 @@
 # Vaxis
 
+This fork is distributed as `github.com/akonwi/vaxis` for Cooper's native image
+support. The backend extension is proposed upstream in
+[rockorager/vaxis#51](https://github.com/rockorager/vaxis/pull/51); this branch's
+module-path changes are separate from that PR.
+
 ```
 It begins with them, but ends with me. Their son, Vaxis
 ```
@@ -29,7 +34,7 @@ Contributions are welcome.
 ```go
 package main
 
-import "go.rockorager.dev/vaxis"
+import "github.com/akonwi/vaxis"
 
 func main() {
 	vx, err := vaxis.New(vaxis.Options{})

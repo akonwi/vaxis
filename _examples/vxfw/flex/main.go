@@ -3,11 +3,11 @@ package main
 import (
 	"log"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
-	"go.rockorager.dev/vaxis/vxfw/richtext"
-	"go.rockorager.dev/vaxis/vxfw/text"
-	"go.rockorager.dev/vaxis/vxfw/vxlayout"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
+	"github.com/akonwi/vaxis/vxfw/richtext"
+	"github.com/akonwi/vaxis/vxfw/text"
+	"github.com/akonwi/vaxis/vxfw/vxlayout"
 )
 
 type App struct {

@@ -3,8 +3,8 @@ package term
 import (
 	"fmt"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/ansi"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/ansi"
 )
 
 type mode struct {

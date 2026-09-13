@@ -13,8 +13,8 @@ import (
 	"sync"
 	"time"
 
-	"go.rockorager.dev/vaxis/ansi"
-	"go.rockorager.dev/vaxis/log"
+	"github.com/akonwi/vaxis/ansi"
+	"github.com/akonwi/vaxis/log"
 )
 
 type capabilities struct {

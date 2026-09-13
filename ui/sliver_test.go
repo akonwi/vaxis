@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"testing"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 func TestCustomScrollViewComposesSlivers(t *testing.T) {

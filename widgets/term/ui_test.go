@@ -3,9 +3,9 @@ package term
 import (
 	"testing"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/ansi"
-	"go.rockorager.dev/vaxis/ui"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/ansi"
+	"github.com/akonwi/vaxis/ui"
 )
 
 func TestSnapshotReturnsVisibleCells(t *testing.T) {

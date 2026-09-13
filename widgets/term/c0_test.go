@@ -3,7 +3,7 @@ package term
 import (
 	"testing"
 
-	"go.rockorager.dev/vaxis/ansi"
+	"github.com/akonwi/vaxis/ansi"
 )
 
 func TestLinefeedModePerformsCarriageReturn(t *testing.T) {

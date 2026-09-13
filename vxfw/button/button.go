@@ -1,10 +1,10 @@
 package button
 
 import (
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
-	"go.rockorager.dev/vaxis/vxfw/center"
-	"go.rockorager.dev/vaxis/vxfw/text"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
+	"github.com/akonwi/vaxis/vxfw/center"
+	"github.com/akonwi/vaxis/vxfw/text"
 )
 
 type Button struct {

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 type model struct {

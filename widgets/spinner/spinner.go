@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 // Model is a spinner. It has a duration and a set of frames. It will request

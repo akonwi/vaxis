@@ -1,6 +1,6 @@
 package ui
 
-import "go.rockorager.dev/vaxis"
+import "github.com/akonwi/vaxis"
 
 type scrollAxisController interface {
 	ScrollByLinesAxis(ScrollAxis, int) bool

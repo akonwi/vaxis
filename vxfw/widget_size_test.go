@@ -4,13 +4,13 @@ import (
 	"strings"
 	"testing"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
-	"go.rockorager.dev/vaxis/vxfw/button"
-	"go.rockorager.dev/vaxis/vxfw/center"
-	"go.rockorager.dev/vaxis/vxfw/list"
-	"go.rockorager.dev/vaxis/vxfw/richtext"
-	"go.rockorager.dev/vaxis/vxfw/text"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
+	"github.com/akonwi/vaxis/vxfw/button"
+	"github.com/akonwi/vaxis/vxfw/center"
+	"github.com/akonwi/vaxis/vxfw/list"
+	"github.com/akonwi/vaxis/vxfw/richtext"
+	"github.com/akonwi/vaxis/vxfw/text"
 )
 
 func TestWidgetConstraints(t *testing.T) {

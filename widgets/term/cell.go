@@ -1,7 +1,7 @@
 package term
 
 import (
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 type cell struct {

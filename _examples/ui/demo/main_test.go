@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/ui"
-	"go.rockorager.dev/vaxis/ui/uitest"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/ui"
+	"github.com/akonwi/vaxis/ui/uitest"
 )
 
 func TestDemoExampleNavigationAndControls(t *testing.T) {

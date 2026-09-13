@@ -3,7 +3,7 @@ package ui
 import (
 	"testing"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 func TestScrollViewClipsChildToViewport(t *testing.T) {

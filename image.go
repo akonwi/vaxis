@@ -10,9 +10,9 @@ import (
 	"io"
 	"sync/atomic"
 
-	"go.rockorager.dev/vaxis/log"
-	"go.rockorager.dev/vaxis/octreequant"
-	"go.rockorager.dev/vaxis/sixel"
+	"github.com/akonwi/vaxis/log"
+	"github.com/akonwi/vaxis/octreequant"
+	"github.com/akonwi/vaxis/sixel"
 )
 
 // Alpha value that we consider to be transparent enough to use default

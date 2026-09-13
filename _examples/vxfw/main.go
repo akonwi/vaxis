@@ -4,9 +4,9 @@ import (
 	"log"
 	"math"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
-	"go.rockorager.dev/vaxis/vxfw/richtext"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
+	"github.com/akonwi/vaxis/vxfw/richtext"
 )
 
 const lorem = `Lorem ipsum odor amet, consectetuer adipiscing elit. Nulla viverra ipsum id curae dui etiam massa? Sagittis non morbi ornare penatibus pharetra inceptos dolor posuere. Placerat netus nascetur tellus nec magnis magna. Convallis accumsan sollicitudin dui sem natoque; tristique nam! Condimentum tristique risus diam nisl cursus suscipit mauris. Penatibus viverra mattis nunc maximus curabitur. Aenean mi tempus vivamus amet vitae urna. Orci at senectus ullamcorper suspendisse augue proin.

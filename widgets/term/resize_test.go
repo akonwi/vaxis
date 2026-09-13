@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/ansi"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/ansi"
 )
 
 func TestResizeSameWidthMoreRowsPullsFromScrollback(t *testing.T) {

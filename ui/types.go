@@ -3,7 +3,7 @@ package ui
 import (
 	"math"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 type (

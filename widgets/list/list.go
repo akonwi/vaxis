@@ -1,7 +1,7 @@
 package list
 
 import (
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 type List struct {

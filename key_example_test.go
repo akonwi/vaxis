@@ -1,7 +1,7 @@
 package vaxis_test
 
 import (
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 func ExampleKey() {

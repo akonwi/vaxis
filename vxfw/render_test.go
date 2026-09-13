@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 func TestRenderClipsNegativeChildOrigin(t *testing.T) {

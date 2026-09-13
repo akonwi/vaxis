@@ -3,7 +3,7 @@ package textinput
 import (
 	"unicode"
 
-	"go.rockorager.dev/vaxis"
+	"github.com/akonwi/vaxis"
 )
 
 type MenuComplete struct {

@@ -3,8 +3,8 @@ package vxlayout
 import (
 	"fmt"
 
-	"go.rockorager.dev/vaxis"
-	"go.rockorager.dev/vaxis/vxfw"
+	"github.com/akonwi/vaxis"
+	"github.com/akonwi/vaxis/vxfw"
 )
 
 // Spacer is a [vxfw.Widget] that takes up available space. It should be used in
