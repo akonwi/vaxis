@@ -155,6 +155,7 @@ type Vaxis struct {
 	caps             capabilities
 	graphicsProtocol int
 	graphicsIDNext   uint64
+	graphicsEpoch    uint64
 	reqCursorPos     bool
 	cursorQueryMu    sync.Mutex
 	charCache        map[string]int
@@ -680,6 +681,20 @@ func (vx *Vaxis) render() {
 		reposition bool
 		cursor     Style
 	)
+	if vx.refresh {
+		// Invalidate even uploads with no placements in this frame. They will
+		// be retransmitted lazily when they next become visible.
+		vx.graphicsEpoch++
+	}
+	for i, p := range vx.graphicsNext {
+		if p.pixelImage != nil && p.generation != p.pixelImage.generation {
+			// Preserve the last frame's snapshot when an already-queued image
+			// is invalidated. Reuploading it removes all terminal placements.
+			next := *p
+			next.generation = p.pixelImage.generation
+			vx.graphicsNext[i] = &next
+		}
+	}
 outerLast:
 	// Delete any placements we don't have this round
 	for _, p1 := range vx.graphicsLast {
@@ -698,15 +713,6 @@ outerLast:
 	if vx.refresh {
 		vx.graphicsLast = []*placement{}
 	}
-	if vx.refresh {
-		// Reset recoverable graphics before any placement is written so an
-		// image with multiple placements is uploaded only once.
-		for _, p := range vx.graphicsNext {
-			if p.refreshFn != nil {
-				p.refreshFn()
-			}
-		}
-	}
 	// draw new placements
 outerNew:
 	for _, p1 := range vx.graphicsNext {
@@ -719,8 +725,12 @@ outerNew:
 		vx.tw.writeCUP(p1.row+1, p1.col+1)
 		p1.writeTo(vx.tw)
 	}
-	// Save this frame as the last frame
-	vx.graphicsLast = vx.graphicsNext
+	// Keep a separate slice so replacing a queued placement cannot mutate the
+	// last frame. Placements themselves are immutable snapshots.
+	for i := range vx.graphicsLast {
+		vx.graphicsLast[i] = nil
+	}
+	vx.graphicsLast = append(vx.graphicsLast[:0], vx.graphicsNext...)
 
 	if vx.mouseShapeLast != vx.mouseShapeNext {
 		_, _ = vx.tw.WriteString(tparm(mouseShape, vx.mouseShapeNext))
@@ -2291,6 +2301,8 @@ func (vx *Vaxis) CanKittyGraphics() bool {
 
 // SupportsKittyGraphics reports whether Kitty is the selected graphics
 // protocol and the terminal has supplied usable cell pixel geometry.
+// Primary-screen callers must use RenderFrame to position and render placements;
+// the legacy inline Render path does not support graphics.
 func (vx *Vaxis) SupportsKittyGraphics() bool {
 	vx.mu.Lock()
 	defer vx.mu.Unlock()
