@@ -38,6 +38,7 @@ type capabilities struct {
 	inBandResize       bool
 	explicitWidth      bool
 	sgrPixels          bool
+	programStatus      bool
 }
 
 type cursorState struct {
@@ -408,6 +409,11 @@ outer:
 				}
 				vx.mu.Lock()
 				vx.caps.sgrPixels = true
+				vx.mu.Unlock()
+			case capabilityProgramStatus:
+				log.Info("[capability] Program status (OSC 7501) supported")
+				vx.mu.Lock()
+				vx.caps.programStatus = true
 				vx.mu.Unlock()
 			}
 		}
@@ -1496,6 +1502,9 @@ func (vx *Vaxis) handleSequence(seq ansi.Sequence) {
 			}
 			vx.PostEvent(appID(vals[1]))
 		}
+		if strings.HasPrefix(string(seq.Payload), programStatusQuery) {
+			vx.PostEvent(capabilityProgramStatus{})
+		}
 	}
 }
 
@@ -1799,6 +1808,8 @@ func (vx *Vaxis) sendQueries() {
 	_, _ = vx.tw.WriteControlString(osc11)
 	// Back up the current app ID
 	_, _ = vx.tw.WriteControlString(getAppID)
+	// Program status protocol feature detection
+	_, _ = vx.tw.WriteControlString(tparm(programStatus, "?"))
 	// We request Smulx to check for styled underlines. Technically, Smulx
 	// only means the terminal supports different underline types (curly,
 	// dashed, etc), but we'll assume the terminal also suppports underline
@@ -1821,6 +1832,8 @@ func (vx *Vaxis) enableModes() {
 	// kitty keyboard
 	if vx.caps.kittyKeyboard {
 		_, _ = vx.tw.WriteControlString(tparm(kittyKBEnable, vx.kittyFlags))
+	} else {
+		_, _ = vx.tw.WriteControlString(modifyOtherKeysEnable)
 	}
 	// sixel scrolling
 	if vx.caps.sixels {
@@ -1872,6 +1885,8 @@ func (vx *Vaxis) disableModes() {
 	_, _ = vx.tw.WriteControlString(decrst(mouseFocusEvents))
 	if vx.caps.kittyKeyboard {
 		_, _ = vx.tw.WriteControlString(kittyKBPop) // kitty keyboard
+	} else {
+		_, _ = vx.tw.WriteControlString(modifyOtherKeysDisable)
 	}
 	_, _ = vx.tw.WriteControlString(decrst(cursorKeys))
 	_, _ = vx.tw.WriteControlString(numericMode)

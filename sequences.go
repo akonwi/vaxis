@@ -20,6 +20,9 @@ const (
 	kittyKBQuery  = "\x1b[?u"
 	kittyKBEnable = "\x1b[>%du"
 	kittyKBPop    = "\x1b[<u"
+	// xterm modifyOtherKeys, honored by tmux with extended-keys on
+	modifyOtherKeysEnable  = "\x1b[>4;1m"
+	modifyOtherKeysDisable = "\x1b[>4;0m"
 	// kitty graphics protocol
 	kittyGquery = "\x1b_Gi=1,a=q\x1b\\"
 	// sixel query XTSMGRAPHICS
@@ -44,6 +47,7 @@ const (
 	setAppID      = "\x1b]176;%s\x1b\\"
 	mouseShape    = "\x1b]22;%s\x1b\\"
 	explicitWidth = "\x1b]66;w=%d;%s\x1b\\"
+	programStatus = "\x1b]7501;%s\x1b\\"
 
 	// SGR
 	sgrReset           = "\x1b[m"
