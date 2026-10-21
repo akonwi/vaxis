@@ -14,18 +14,18 @@ func TestSetTitle(t *testing.T) {
 		{
 			name: "window title",
 			set:  (*Vaxis).SetTitle,
-			want: "\x1b]2;kit - ]2;Fix pager\x1b\\",
+			want: "\x1b]2;app - ]2;Fix pager\x1b\\",
 		},
 		{
 			name: "window title and icon name",
 			set:  (*Vaxis).SetTitleAndIconName,
-			want: "\x1b]0;kit - ]2;Fix pager\x1b\\",
+			want: "\x1b]0;app - ]2;Fix pager\x1b\\",
 		},
 	} {
 		t.Run(test.name, func(t *testing.T) {
 			var out bytes.Buffer
 			vx := newWriterTestVaxis(&out)
-			test.set(vx, "kit - \x1b]2;Fix\a pager\u009c")
+			test.set(vx, "app - \x1b]2;Fix\a pager\u009c")
 			if got := out.String(); got != test.want {
 				t.Fatalf("output = %q, want %q", got, test.want)
 			}

@@ -1170,17 +1170,21 @@ func (vx *Vaxis) handleSequence(seq ansi.Sequence) {
 			vx.mu.Lock()
 			reqCursorPos := vx.reqCursorPos
 			vx.reqCursorPos = false
-			if reqCursorPos {
-				if seq.NumParameters == 2 && seq.Param(0) > 0 && seq.Param(1) > 0 {
-					select {
-					case vx.chCursorPos <- [2]int{seq.Param(0), seq.Param(1)}:
-					default:
-					}
+			if reqCursorPos && seq.NumParameters == 2 && seq.Param(0) > 0 && seq.Param(1) > 0 {
+				// CursorPosition may already have timed out. Never
+				// block the input loop on a reply nobody is waiting for.
+				select {
+				case vx.chCursorPos <- [2]int{seq.Param(0), seq.Param(1)}:
+				default:
 				}
-				vx.mu.Unlock()
-				return
 			}
 			vx.mu.Unlock()
+			if reqCursorPos {
+				if seq.NumParameters != 2 {
+					log.Error("not enough DSRCPR params")
+				}
+				return
+			}
 		case 'S':
 			if len(intermediates) == 1 && intermediates[0] == '?' {
 				if seq.NumParameters < 3 {
@@ -2146,6 +2150,7 @@ func (vx *Vaxis) CursorPosition() (row int, col int) {
 	vx.cursorQueryMu.Lock()
 	defer vx.cursorQueryMu.Unlock()
 	vx.mu.Lock()
+	// Discard a reply that arrived after a previous query timed out.
 	select {
 	case <-vx.chCursorPos:
 	default:
