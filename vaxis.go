@@ -639,13 +639,15 @@ func (w appendWriter) Write(p []byte) (int, error) {
 // that it is not visible, Render preserves the pending frame without writing
 // it; the latest frame is rendered when visibility returns.
 func (vx *Vaxis) Render() {
+	// While suspended another program owns the terminal; the next Render
+	// after Resume draws the pending frame.
+	if vx.suspended || vx.closed {
+		return
+	}
 	if vx.primaryScreen != nil && (vx.primaryScreen.checked || vx.primaryScreen.mode != PrimaryInline) {
 		if err := vx.RenderFrame(); err != nil {
 			log.Error("render: %v", err)
 		}
-		return
-	}
-	if vx.suspended || vx.closed {
 		return
 	}
 	if vx.renderSuppressed() {
@@ -1982,7 +1984,8 @@ func (vx *Vaxis) exitPrimaryScreen() {
 // stops listening for signals, and returns the terminal to it's original state.
 // Suspend can be useful to, for example, drop out of the full screen TUI and
 // run another TUI. The state of vaxis will be retained, so you can reenter the
-// original state by calling Resume
+// original state by calling Resume. Calling Suspend while already suspended
+// does nothing. Render does nothing while suspended.
 func (vx *Vaxis) Suspend() error {
 	if vx.suspended {
 		return nil
@@ -2045,6 +2048,8 @@ func (vx *Vaxis) openTty() error {
 	}
 	vx.tw = newWriter(vx)
 	vx.parser = ansi.NewParser(vx.tty, ansi.ParserModeInput)
+	// Resume replaces vx.parser. Each input goroutine must keep reading the
+	// parser it was started with so it observes that parser's EOF and exits.
 	parser := vx.parser
 
 	go func() {
@@ -2076,7 +2081,8 @@ func (vx *Vaxis) openTty() error {
 
 // Resume returns the application to it's fullscreen state, re-enters raw mode,
 // and reenables input parsing. Upon resuming, a Resize event will be delivered.
-// It is entirely possible the terminal was resized while suspended.
+// It is entirely possible the terminal was resized while suspended. Calling
+// Resume when not suspended does nothing.
 func (vx *Vaxis) Resume() error {
 	if !vx.suspended {
 		return nil
