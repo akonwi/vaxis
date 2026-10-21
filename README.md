@@ -1,9 +1,9 @@
 # Vaxis
 
-This fork is distributed as `github.com/akonwi/vaxis` for Cooper's native image
-support. The backend extension is proposed upstream in
-[rockorager/vaxis#51](https://github.com/rockorager/vaxis/pull/51); this branch's
-module-path changes are separate from that PR.
+This fork is distributed as `github.com/akonwi/vaxis` for Cooper. It tracks
+[rockorager/vaxis](https://github.com/rockorager/vaxis) and carries the
+checked primary-screen rendering modes described below, which are not yet
+upstream. Changes that have landed upstream are picked up by syncing.
 
 ```
 It begins with them, but ends with me. Their son, Vaxis
